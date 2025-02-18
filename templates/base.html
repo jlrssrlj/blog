@@ -34,26 +34,29 @@
                         </div>
                         <div class="header-action-right">
                             <div class="header-action-2">
+                                {% if not user.is_authenticated %}
                                 <div class="header-action-icon-2">
                                     <a href="shop-compare.html">
                                         <img class="svgInject" alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-user.svg' %}" />
                                     </a>
                                     <a href="{% url 'login' %}"><span class="lable ml-0">&nbsp;Login</span></a>
                                 </div>
+                                {% else %}
                        
                                 <div class="header-action-icon-2">
                                     <a href="shop-compare.html">
                                         <img class="svgInject" alt="Nest" src="{% static 'assets/imgs/theme/icons/dashboard.svg' %}" />
                                     </a>
-                                    <a href="shop-compare.html"><span class="lable ml-0">&nbsp;&nbsp;Dashboard</span></a>
+                                    <a href="shop-compare.html"><span class="lable ml-0">&nbsp;&nbsp;{{ user }}</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             <li><a href="page-account.html"><i class="fi fi-rs-document mr-10"></i>Posts</a></li>
                                             <li><a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Categorias</a></li>
-                                            <li><a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
+                                            <li><a href="{% url 'logout' %}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
                                         </ul>
                                     </div>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

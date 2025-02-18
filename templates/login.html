@@ -16,6 +16,8 @@
                                     </div>
                                     <form action="{% url 'login' %}" method="post">
                                         {% csrf_token %}
+
+                                        {{ form }}
                                         
                                         <div class="login_footer form-group mb-50">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="Register">Login</button>
