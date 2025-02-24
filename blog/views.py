@@ -4,7 +4,9 @@ from .forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
 from django.contrib import auth
+from django.views.decorators.http import require_http_methods
 
+@require_http_methods(["GET", "POST"])
 def home(request):
     
     posts = Blog.objects.filter(is_featured = True).order_by('update_at')
@@ -17,7 +19,10 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            group = Group.objects.get(name = 'blog_group')
+            group.user_set.add(user)
+            
             return redirect('register')
     else:
         form = RegistrationForm()

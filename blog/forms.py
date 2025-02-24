@@ -12,5 +12,5 @@ class RegistrationForm(UserCreationForm):
         user.is_staff = True
         
         if commit:
-            user.asve()
+            user.save()
         return user

@@ -51,7 +51,8 @@
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             <li><a href="page-account.html"><i class="fi fi-rs-document mr-10"></i>Posts</a></li>
-                                            <li><a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Categorias</a></li>
+                                            <li><a href="{% url 'categories' %}"><i class="fi fi-rs-settings-sliders mr-10"></i>Categorias</a></li>
+                                            <li><a href="{% url 'register' %}"><i class="fi fi-rs-settings-sliders mr-10"></i>Crear usuario</a></li>
                                             <li><a href="{% url 'logout' %}"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a></li>
                                         </ul>
                                     </div>
