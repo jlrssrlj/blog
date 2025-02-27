@@ -16,7 +16,7 @@
                                         <h1 class="mb-5">Editar</h1>
                                         
                                     </div>
-                                    <form action="{% url 'edit_category' %}" method="post">
+                                    <form action="{% url 'edit_category' category.id %}" method="post">
                                         {% csrf_token %}
 
                                         {{ form }}

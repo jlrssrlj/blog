@@ -52,7 +52,7 @@
                                             </td>
                                             <td class="text-center">{{ cat.created_at }}</td>
                                             <td class="text-center">{{ cat.update_at }}</td>
-                                            <td class="text-right"><a href=""><i class="fi-rs-edit"></i></a> &nbsp;&nbsp; <a href=""><i class="fi-rs-trash"></i></a></td>
+                                            <td class="text-right"><a href="{% url 'edit_category' cat.id %}"><i class="fi-rs-edit"></i></a> &nbsp;&nbsp; <a href="{% url 'delete_category' cat.id %}"><i class="fi-rs-trash"></i></a></td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
