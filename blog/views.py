@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
 from django.contrib import auth
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 
 @require_http_methods(["GET", "POST"])
 def home(request):
@@ -15,6 +16,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+@require_http_methods(["GET", "POST"])
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -31,6 +33,7 @@ def register(request):
     }
     return render(request, 'register.html', context)
 
+@require_http_methods(["GET", "POST"])
 def login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -49,6 +52,7 @@ def login(request):
     }
     return render(request, 'login.html',context)
 
+@login_required
 def logout(request):
     auth.logout(request)
     return redirect('home')

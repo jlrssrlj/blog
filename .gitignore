@@ -1,0 +1,17 @@
+# Ignorar entornos virtuales
+venv/
+.env
+*.pyc
+__pycache__/
+
+# Ignorar archivos de configuración y bases de datos temporales
+
+*.log
+
+# Ignorar configuraciones de IDEs (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignorar dependencias descargadas
+*.egg-info/
