@@ -55,8 +55,8 @@
                                             <td class="text-center">{{ post.category }}</td>
                                             <td class="text-center">{{ post.author }}</td>
                                             <td class="text-center">{{ post.status }}</td>
-                                            <td class="text-center">{{ post.is_featured }}</td>
-                                            <td class="text-right"><a href="{% url 'edit_posts' post.id %}"><i class="fi-rs-edit"></i></a> &nbsp;&nbsp; <a href="#"><i class="fi-rs-trash"></i></a></td>
+                                            <td class="text-center">{% if post.is_featured %} si {% else %} no {% endif %}</td>
+                                            <td class="text-right"><a href="{% url 'edit_posts' post.id %}"><i class="fi-rs-edit"></i></a> &nbsp;&nbsp; <a href="{% url 'delet_posts' post.id %}"><i class="fi-rs-trash"></i></a></td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>

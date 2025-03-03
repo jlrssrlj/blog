@@ -93,7 +93,7 @@ def edit_posts(request, pk):
     return render(request, 'dashboard/edit_posts.html', context)
 
 @login_required
-def delete_category(request,pk):
+def delet_posts(request,pk):
     posts = get_object_or_404(Blog, pk=pk)
     posts.delete()
     return redirect('posts')
