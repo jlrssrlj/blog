@@ -10601,4 +10601,89 @@ footer .hotline img {
     max-width: 100%;
     font-size: 35px;
   }
-}/*# sourceMappingURL=main.css.map */
+
+  /* Mostrar login y elementos del header en móviles */
+  .header-action-right,
+  .header-action-2,
+  .header-action-icon-2 {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .header-right {
+    display: flex !important;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .header-action-icon-2 a span {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .header-action-icon-2 {
+    align-items: center;
+    gap: 6px;
+  }
+}
+/* Asegura que el dropdown esté oculto por defecto */
+.cart-dropdown-wrap.account-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    min-width: 180px;
+}
+
+/* Mostrar dropdown al pasar el mouse */
+.header-action-icon-2:hover .cart-dropdown-wrap.account-dropdown {
+    display: block;
+}
+
+/* Estilo de la lista del dropdown */
+.cart-dropdown-wrap.account-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.cart-dropdown-wrap.account-dropdown ul li {
+    padding: 8px 20px;
+}
+
+.cart-dropdown-wrap.account-dropdown ul li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.cart-dropdown-wrap.account-dropdown ul li a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Mobile: asegura que login/usuario se vea */
+@media only screen and (max-width: 991px) {
+    .header-action-right,
+    .header-action-2,
+    .header-action-icon-2 {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .header-action-icon-2 a span.lable {
+        font-size: 14px;
+    }
+
+    /* Opcional: dropdown visible en móviles al tocar */
+    .cart-dropdown-wrap.account-dropdown {
+        position: relative;
+        display: block;
+        box-shadow: none;
+        background: transparent;
+    }
+}
