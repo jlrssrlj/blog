@@ -1,10 +1,10 @@
-from django.http import HttpResponse
+from django.views.decorators.http import require_http_methods
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 
 from blogs.models import Blog, Categorias
 
-
+@require_http_methods(["GET"])
 def posts_by_category(request, category_id):
     posts = Blog.objects.filter(status = 'Published', category=category_id)
     try:
@@ -19,7 +19,7 @@ def posts_by_category(request, category_id):
     }
     return render(request, 'posts_by_category.html',context)
 
-
+@require_http_methods(["GET"])
 def blogs(request, slug):
     single_blog = get_object_or_404(Blog, slug = slug)
     context = {
@@ -27,6 +27,7 @@ def blogs(request, slug):
     }
     return render(request, 'blogs.html',context)
 
+@require_http_methods(["GET"])
 def search(request):
     keyword = request.GET.get('keyword')
     
