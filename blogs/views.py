@@ -4,14 +4,12 @@ from django.db.models import Q
 
 from blogs.models import Blog, Categorias
 
-# Create your views here.
+
 def posts_by_category(request, category_id):
     posts = Blog.objects.filter(status = 'Published', category=category_id)
-    #category = Categorias.objects.get(pk=category_id)
-    #category = get_object_or_404(Categorias, pk=category_id)
     try:
         category = Categorias.objects.get(pk=category_id)
-    except:
+    except Categorias.DoesNotExist:
         return redirect('home')
     
     context ={
